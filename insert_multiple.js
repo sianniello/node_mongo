@@ -3,7 +3,7 @@
  */
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://steno87:110203_Ca@cluster0-shard-00-00-fxpno.mongodb.net:27017,cluster0-shard-00-01-fxpno.mongodb.net:27017,cluster0-shard-00-02-fxpno.mongodb.net:27017/db?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+var url = 'mongodb://localhost:27017/mydb';
 var request = require('request');
 
 MongoClient.connect(url, function(err, db) {
@@ -24,7 +24,7 @@ MongoClient.connect(url, function(err, db) {
 });
 
 function getRandomUser(callback) {
-    var url = 'https://randomuser.me/api/?nat=GB&results=500&inc=name,location';
+    var url = 'https://randomuser.me/api/?nat=AU,BR,CA,CH,DE,DK,ES,FI,FR,GB,IE,NL,NZ,TR,US&results=1000&inc=name,location';
     request(url, function(error, response, body){
         if(error) console.log(error);
         else {
